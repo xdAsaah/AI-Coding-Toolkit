@@ -1,0 +1,124 @@
+---
+name: brainstorming
+description: "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+---
+
+# Brainstorming Ideas Into Designs
+
+Help turn ideas into fully formed designs and specs through natural collaborative dialogue.
+
+Start by understanding the current project context, then ask questions one at a time to refine the idea. Once you understand what you're building, present the design and get user approval.
+
+<HARD-GATE>
+Do NOT invoke any implementation skill, write any code, scaffold any project, or take any implementation action until you have presented a design and the user has approved it. This applies to EVERY project regardless of perceived simplicity.
+</HARD-GATE>
+
+## Checklist
+
+You MUST create a task for each of these items and complete them in order:
+
+1. **Explore project context** — check files, docs, recent commits
+2. **Ask clarifying questions** — one at a time, understand purpose/constraints/success criteria
+3. **Propose 2-3 approaches** — with trade-offs and your recommendation
+4. **Present design** — in sections scaled to their complexity, get user approval after each section
+5. **Write design doc** — save to `docs/superpowers/specs/{feature}-design.md` and commit
+6. **Create status file** — save to `docs/superpowers/status/{feature}-status.md` (see Status File section)
+7. **Spec self-review** — quick inline check for placeholders, contradictions, ambiguity, scope
+8. **User reviews written spec** — ask user to review the spec file before proceeding
+9. **Transition to next step** — invoke non-goals-clarify skill (NOT writing-plans directly)
+
+## The Process
+
+**Understanding the idea:**
+
+- Check out the current project state first (files, docs, recent commits)
+- If the project is too large for a single spec, help the user decompose into sub-projects
+- Ask questions one at a time to refine the idea
+- Prefer multiple choice questions when possible
+- Focus on understanding: purpose, constraints, success criteria
+
+**Exploring approaches:**
+
+- Propose 2-3 different approaches with trade-offs
+- Present options conversationally with your recommendation and reasoning
+- Lead with your recommended option and explain why
+
+**Presenting the design:**
+
+- Once you believe you understand what you're building, present the design
+- Scale each section to its complexity
+- Ask after each section whether it looks right so far
+- Cover: architecture, components, data flow, error handling, testing
+
+**Design for isolation and clarity:**
+
+- Break the system into smaller units that each have one clear purpose
+- For each unit, answer: what does it do, how do you use it, what does it depend on?
+
+## After the Design
+
+**Documentation:**
+
+- Write the validated design (spec) to `docs/superpowers/specs/{feature}-design.md`
+- Commit the design document to git
+
+**Create Status File:**
+
+After writing the design doc, create `docs/superpowers/status/{feature}-status.md`:
+
+```markdown
+# Feature: {feature-name} 状态
+
+## 当前阶段
+brainstorming
+
+## 分支
+{current git branch}
+
+## 文件位置
+| 文件类型 | 路径 | 状态 |
+|----------|------|------|
+| 设计草稿 | docs/superpowers/specs/{feature}-design.md | ✅ 已创建 |
+| PRD | (待创建) | - |
+| spec | (待创建) | - |
+| plan | (待创建) | - |
+| ADR | (无) | - |
+
+## 待处理
+- 下一步: non-goals-clarify
+
+## 历史记录
+| 时间 | 步骤 | 结果 |
+|------|------|------|
+| {YYYY-MM-DD HH:MM} | brainstorming | 完成 |
+```
+
+**Spec Self-Review:**
+After writing the spec document, look at it with fresh eyes:
+
+1. **Placeholder scan:** Any "TBD", "TODO", incomplete sections, or vague requirements? Fix them.
+2. **Internal consistency:** Do any sections contradict each other?
+3. **Scope check:** Is this focused enough for a single implementation plan?
+4. **Ambiguity check:** Could any requirement be interpreted two different ways?
+
+Fix any issues inline. No need to re-review — just fix and move on.
+
+**User Review Gate:**
+After the spec review loop passes, ask the user to review the written spec before proceeding:
+
+> "Spec written and committed to `<path>`. Please review it and let me know if you want to make any changes before we start writing out the implementation plan."
+
+Wait for the user's response. If they request changes, make them and re-run the spec review loop. Only proceed once the user approves.
+
+**Implementation:**
+
+- Invoke the non-goals-clarify skill to confirm v1 scope boundaries
+- Do NOT invoke writing-plans directly. non-goals-clarify is the next step.
+
+## Key Principles
+
+- **One question at a time** - Don't overwhelm with multiple questions
+- **Multiple choice preferred** - Easier to answer than open-ended when possible
+- **YAGNI ruthlessly** - Remove unnecessary features from all designs
+- **Explore alternatives** - Always propose 2-3 approaches before settling
+- **Incremental validation** - Present design, get approval before moving on
