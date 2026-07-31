@@ -1,24 +1,24 @@
-# ADR-{序号}: {标题}
+# ADR-{Number}: {Title}
 
-## 状态
-- [x] 已接受
-- [ ] 已废弃
+## Status
+- [x] Accepted
+- [ ] Deprecated
 
-## 背景
-{为什么需要这个决策}
+## Background
+{Why this decision is needed}
 
-## 决策
-{做出了什么决定}
+## Decision
+{What decision was made}
 
-## 考量因素
-| 方案 | 优点 | 缺点 |
+## Considerations
+| Option | Pros | Cons |
 
-## 后果
-### 正面
-- {正面影响}
+## Consequences
+### Positive
+- {Positive impact}
 
-### 负面
-- {负面影响}
+### Negative
+- {Negative impact}
 
-## 相关决策
-- ADR-{序号}: {标题}
+## Related Decisions
+- ADR-{Number}: {Title}

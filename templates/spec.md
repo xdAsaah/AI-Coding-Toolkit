@@ -1,30 +1,30 @@
-# Spec: {功能名称}
+# Spec: {Feature Name}
 
-## 状态
-- [ ] 草稿
-- [x] 设计中
-- [ ] 已实现
-- [ ] 已废弃
+## Status
+- [ ] Draft
+- [x] In Design
+- [ ] Implemented
+- [ ] Deprecated
 
-## 组件划分
-| 组件 | 职责 | 依赖 |
+## Component Division
+| Component | Responsibility | Dependency |
 
-## 数据流实现
+## Data Flow Implementation
 ```mermaid
 ...
 ```
 
-## 模块交互
-| 模块 | 输入 | 输出 | 交互方式 |
+## Module Interaction
+| Module | Input | Output | Interaction Method |
 
-## 非功能性约束
-| 约束类型 | 要求 |
+## Non-functional Constraints
+| Constraint Type | Requirement |
 
-## 内部设计
-| 设计项 | 描述 |
+## Internal Design
+| Design Item | Description |
 
-## 测试覆盖
-| 测试项 | 覆盖率 | 说明 |
+## Test Coverage
+| Test Item | Coverage | Notes |
 
-## 验证标准
-| 验证项 | 方法 |
+## Verification Standards
+| Verification Item | Method |

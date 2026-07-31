@@ -67,30 +67,30 @@ You MUST create a task for each of these items and complete them in order:
 After writing the design doc, create `docs/superpowers/status/{feature}-status.md`:
 
 ```markdown
-# Feature: {feature-name} 状态
+# Feature: {feature-name} Status
 
-## 当前阶段
+## Current Stage
 brainstorming
 
-## 分支
+## Branch
 {current git branch}
 
-## 文件位置
-| 文件类型 | 路径 | 状态 |
+## File Locations
+| File Type | Path | Status |
 |----------|------|------|
-| 设计草稿 | docs/superpowers/specs/{feature}-design.md | ✅ 已创建 |
-| PRD | (待创建) | - |
-| spec | (待创建) | - |
-| plan | (待创建) | - |
-| ADR | (无) | - |
+| Design draft | docs/superpowers/specs/{feature}-design.md | ✅ Created |
+| PRD | (to be created) | - |
+| spec | (to be created) | - |
+| plan | (to be created) | - |
+| ADR | (none) | - |
 
-## 待处理
-- 下一步: non-goals-clarify
+## Pending
+- Next step: non-goals-clarify
 
-## 历史记录
-| 时间 | 步骤 | 结果 |
+## History
+| Time | Step | Result |
 |------|------|------|
-| {YYYY-MM-DD HH:MM} | brainstorming | 完成 |
+| {YYYY-MM-DD HH:MM} | brainstorming | Done |
 ```
 
 **Spec Self-Review:**

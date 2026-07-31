@@ -152,23 +152,23 @@ After saving the plan, update status file:
 ```markdown
 # Update docs/superpowers/status/{feature}-status.md
 
-## 当前阶段
+## Current Stage
 writing-plans
 
-## 文件位置
-| 文件类型 | 路径 | 状态 |
+## File Locations
+| File Type | Path | Status |
 |----------|------|------|
-| 设计草稿 | docs/superpowers/specs/{feature}-design.md | ✅ 已创建 |
-| PRD | docs/prd/features/{feature}.md | ✅ 已创建 |
-| spec | docs/superpowers/specs/{feature}-spec.md | ✅ 已创建 |
-| plan | docs/superpowers/plans/{feature}-plan.md | ✅ 已创建 |
-| ADR | (无/已创建) | - |
+| Design draft | docs/superpowers/specs/{feature}-design.md | ✅ Created |
+| PRD | docs/prd/features/{feature}.md | ✅ Created |
+| spec | docs/superpowers/specs/{feature}-spec.md | ✅ Created |
+| plan | docs/superpowers/plans/{feature}-plan.md | ✅ Created |
+| ADR | (none/created) | - |
 
-## 待处理
-- 下一步: test-driven-development
+## Pending
+- Next step: test-driven-development
 
-## 历史记录
-| 追加一行 | writing-plans | 完成 |
+## History
+| Append a row | writing-plans | Done |
 ```
 
 Then offer execution choice:

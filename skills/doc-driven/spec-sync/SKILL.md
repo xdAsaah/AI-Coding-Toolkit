@@ -26,14 +26,14 @@ Analyze code changes to identify which documents may be affected. Generate a pen
 
 ## Boundary (vs doc-checker)
 
-| 维度 | doc-checker (合并前) | spec-sync (提交后) |
-|------|----------------------|-------------------|
-| 问题 | 代码是否违反文档约定？ | 代码变更影响哪些文档？ |
-| 检查 | API路径/方法是否与契约一致 | 哪些PRD需要更新 |
-| 检查 | PRD验收标准是否有关联测试 | 哪些ADR需要补充 |
-| 检查 | ADR决策是否在代码中落实 | 哪些spec需要同步 |
-| 阻断 | 是（破坏性变更） | 否 |
-| 修改文档 | 否 | 否（只建议） |
+| Dimension | doc-checker (before merge) | spec-sync (after commit) |
+|-----------|----------------------------|--------------------------|
+| Question | Does code violate document conventions? | Which documents are affected by code changes? |
+| Check | Do API paths/methods match contract | Which PRDs need updating |
+| Check | Do PRD acceptance criteria have linked tests | Which ADRs need supplementing |
+| Check | Are ADR decisions reflected in code | Which specs need syncing |
+| Block | Yes (breaking changes) | No |
+| Modify Docs | No | No (suggest only) |
 
 **spec-sync does NOT:**
 - Check if API path matches contract (that's doc-checker's job)
@@ -79,12 +79,12 @@ Analyze code changes to identify which documents may be affected. Generate a pen
 
 | Structure Change | Index File to Update |
 |-----------------|---------------------|
-| New/deleted directory | docs/project-index.md (目录用途表) |
-| New entry point | docs/project-index.md (入口点表) |
-| New module/service | docs/dependency-map.md (依赖方向) |
-| Module dependency changed | docs/dependency-map.md (依赖方向、禁止的依赖方向) |
+| New/deleted directory | docs/project-index.md (Directory Purposes table) |
+| New entry point | docs/project-index.md (Entry Points table) |
+| New module/service | docs/dependency-map.md (Dependency Direction) |
+| Module dependency changed | docs/dependency-map.md (Dependency Direction, Forbidden Dependency Directions) |
 | New convention pattern | docs/conventions.md |
-| New config file | docs/project-index.md (关键配置文件表) |
+| New config file | docs/project-index.md (Key Config Files table) |
 
 ### Step 3: Generate Pending Update Checklist
 - List each affected document
@@ -143,18 +143,18 @@ Please review and approve changes, or provide guidance on which documents to upd
 Update `docs/superpowers/status/{feature}-status.md`:
 
 ```markdown
-## 当前阶段
+## Current Stage
 spec-sync
 
-## 文件位置
-| 变更影响报告 | docs/superpowers/reports/{feature}-impact.md | ✅ 已生成 |
+## File Locations
+| Change impact report | docs/superpowers/reports/{feature}-impact.md | ✅ Generated |
 
-## 待处理
-- 下一步: spec-archive (after human reviews impact report)
-- 待确认文档更新: {N} 项
+## Pending
+- Next step: spec-archive (after human reviews impact report)
+- Document updates pending confirmation: {N} items
 
-## 历史记录
-| 追加一行 | spec-sync | 完成 (待人类确认) |
+## History
+| Append a row | spec-sync | Done (pending human confirmation) |
 ```
 
 ## Anti-Patterns

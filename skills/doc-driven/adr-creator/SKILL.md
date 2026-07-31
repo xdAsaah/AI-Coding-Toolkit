@@ -41,7 +41,7 @@ Do NOT trigger for:
 
 ## Trigger Phrase
 
-"本次PRD涉及[具体触发条件]，是否创建ADR记录技术决策？"
+"This PRD involves [specific trigger conditions], should we create an ADR to record the technical decision?"
 
 ## Core Capabilities
 
@@ -78,10 +78,10 @@ Do NOT trigger for:
 Add new ADR entry to `docs/doc-index.md` ADR section:
 
 ```markdown
-## ADR 文档
-| 序号 | 标题 | 文件路径 | 状态 |
-|------|------|---------|------|
-| {seq} | {title} | docs/arch/decisions/{seq}-{title}.md | 已接受 |
+## ADR Documents
+| Sequence | Title | File Path | Status |
+|----------|-------|-----------|--------|
+| {seq} | {title} | docs/arch/decisions/{seq}-{title}.md | Accepted |
 ```
 
 ### Step 7: Update Status File
@@ -89,17 +89,17 @@ Add new ADR entry to `docs/doc-index.md` ADR section:
 Update `docs/superpowers/status/{feature}-status.md`:
 
 ```markdown
-## 当前阶段
+## Current Stage
 adr-creator
 
-## 文件位置
-| ADR | docs/arch/decisions/{seq}-{title}.md | ✅ 已创建 |
+## File Locations
+| ADR | docs/arch/decisions/{seq}-{title}.md | ✅ Created |
 
-## 待处理
-- 下一步: writing-plans
+## Pending
+- Next step: writing-plans
 
-## 历史记录
-| 追加一行 | adr-creator | 完成 |
+## History
+| Append a row | adr-creator | Done |
 ```
 
 ## Output Location
@@ -112,20 +112,20 @@ adr-creator
 
 ### Creation
 - Created by adr-creator when triggered by intelligent filtering rules
-- Status: "已接受"
+- Status: "Accepted"
 
 ### Deprecation
 - ADRs are NEVER deleted
 - When a decision is overturned:
-  1. Mark old ADR status as "已废弃"
+  1. Mark old ADR status as "Deprecated"
   2. Add deprecation reason and date
-  3. Create new ADR that references the old one in "相关决策"
+  3. Create new ADR that references the old one in "Related Decisions"
   4. New ADR explains why the old decision was overturned
 
 ### Supersession
 - When a new ADR supersedes an old one:
-  1. Old ADR: Add "被 ADR-{新序号} 替代" to status section
-  2. New ADR: Add "替代 ADR-{旧序号}" to related decisions
+  1. Old ADR: Add "Superseded by ADR-{new sequence}" to status section
+  2. New ADR: Add "Supersedes ADR-{old sequence}" to related decisions
 
 ## Quality Gate
 

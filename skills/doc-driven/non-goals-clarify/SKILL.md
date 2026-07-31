@@ -9,7 +9,7 @@ description: "Use after brainstorming completes and before prd-generator. Confir
 
 Prevent AI from building features the user never asked for.
 
-> "明确不做什么"比"明确要做什么"更重要
+> "Defining what NOT to do" is more important than "defining what to do"
 
 ## When to Use
 
@@ -37,32 +37,32 @@ Prevent AI from building features the user never asked for.
 Based on design draft from brainstorming, infer likely Non-Goals:
 
 ```
-输入: "创建一个电商后台管理系统"
+Input: "Create an e-commerce backend management system"
 
-推断Non-Goals:
-- OAuth第三方登录
-- 移动端适配
-- 多语言支持
-- 支付网关集成
-- 数据导出
-- 第三方平台对接
+Inferred Non-Goals:
+- OAuth third-party login
+- Mobile adaptation
+- Multi-language support
+- Payment gateway integration
+- Data export
+- Third-party platform integration
 ```
 
 ### Step 2: Present to User
 
 ```
-向用户提问:
-"基于需求分析，为防止AI过度实现，请确认v1不做哪些功能：
+Ask user:
+"Based on requirement analysis, to prevent AI over-implementation, please confirm which features v1 will NOT do:
 
-□ OAuth第三方登录（微信/Google）
-□ 手机号登录（仅邮箱）
-□ 移动端适配（仅桌面端）
-□ 多语言支持（仅中文）
-□ 支付网关集成
-□ 数据导出功能
-□ 第三方平台对接（ERP/CRM）
-□ 实时通知推送
-□ 其他不做的事项：____"
+□ OAuth third-party login (WeChat/Google)
+□ Phone number login (email only)
+□ Mobile adaptation (desktop only)
+□ Multi-language support (Chinese only)
+□ Payment gateway integration
+□ Data export functionality
+□ Third-party platform integration (ERP/CRM)
+□ Real-time notification push
+□ Other items not to do: ____"
 ```
 
 ### Step 3: Update CLAUDE.md Non-Goals Section
@@ -72,13 +72,13 @@ Append confirmed Non-Goals to the `## Non-Goals` section in CLAUDE.md:
 ```markdown
 ## Non-Goals
 
-- v1不做 OAuth第三方登录
-- v1不做 移动端适配
-- v1不做 多语言支持
-- v1不做 支付网关集成
+- v1 does NOT do OAuth third-party login
+- v1 does NOT do Mobile adaptation
+- v1 does NOT do Multi-language support
+- v1 does NOT do Payment gateway integration
 
-> 触及Non-Goals时必须停止并询问用户
-> 用户确认日期: YYYY-MM-DD
+> Must stop and ask user when touching Non-Goals
+> User confirmation date: YYYY-MM-DD
 ```
 
 If CLAUDE.md doesn't have a Non-Goals section, create one. If it already has one, merge new items (avoid duplicates).
@@ -88,14 +88,14 @@ If CLAUDE.md doesn't have a Non-Goals section, create one. If it already has one
 Update `docs/superpowers/status/{feature}-status.md`:
 
 ```markdown
-## 当前阶段
+## Current Stage
 non-goals-clarify
 
-## 待处理
-- 下一步: prd-generator
+## Pending
+- Next step: prd-generator
 
-## 历史记录
-| 追加一行 | non-goals-clarify | 完成 |
+## History
+| Append a row | non-goals-clarify | Done |
 ```
 
 ### Step 5: Pass to prd-generator
@@ -104,18 +104,18 @@ Non-Goals now in CLAUDE.md are automatically available as constraints for prd-ge
 
 ## Hard Rules
 
-- **必须向用户确认** - 不能由AI自行决定
-- **必须记录到CLAUDE.md** - 不能只在对话中确认,也不能存到独立文件
-- **必须传递给下游技能** - prd-generator通过读取CLAUDE.md获取Non-Goals
-- **触及Non-Goals时必须停止** - AI发现需求接近Non-Goals时，必须停止并询问
+- **Must confirm with user** - Cannot be decided by AI alone
+- **Must record to CLAUDE.md** - Cannot be confirmed only in conversation, cannot be stored in a separate file
+- **Must pass to downstream skills** - prd-generator obtains Non-Goals by reading CLAUDE.md
+- **Must stop when touching Non-Goals** - When AI finds requirements approaching Non-Goals, it must stop and ask
 
 ## Quality Check
 
 ```
-□ 读取了 {feature}-design.md
-□ 基于设计草稿推断Non-Goals
-□ 向用户展示确认列表
-□ 用户已确认
-□ 已更新CLAUDE.md的Non-Goals section
-□ 已更新 {feature}-status.md
+□ Read {feature}-design.md
+□ Inferred Non-Goals based on design draft
+□ Presented confirmation list to user
+□ User confirmed
+□ Updated CLAUDE.md Non-Goals section
+□ Updated {feature}-status.md
 ```

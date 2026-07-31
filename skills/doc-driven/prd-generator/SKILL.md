@@ -90,9 +90,9 @@ Generate PRD documents that are complete, consistent, and developer-friendly. Ba
 ## Data Flow
 
 ```
-Input:  docs/superpowers/specs/{feature}-design.md  (设计草稿: What/Why/Constraints/Acceptance)
+Input:  docs/superpowers/specs/{feature}-design.md  (Design Draft: What/Why/Constraints/Acceptance)
   ↓ Transform
-Output: docs/prd/features/{feature}.md  (PRD成品: 用户故事/业务流程/验收标准/对外契约)
+Output: docs/prd/features/{feature}.md  (PRD Final: User stories/Business flow/Acceptance criteria/External contracts)
 ```
 
 **Design draft is NOT modified.** It remains as source material for writing-plans.
@@ -106,7 +106,7 @@ Output: docs/prd/features/{feature}.md  (PRD成品: 用户故事/业务流程/�
 ### Creation
 - Created by prd-generator after brainstorming and non-goals-clarify
 - Source: Transform design draft ({feature}-design.md) into formal PRD
-- Status: "草稿" → "评审中"
+- Status: "Draft" → "In Review"
 
 ### Update
 - Updated by spec-sync when code changes affect PRD content
@@ -114,12 +114,12 @@ Output: docs/prd/features/{feature}.md  (PRD成品: 用户故事/业务流程/�
 
 ### Implementation
 - Updated by spec-archive when feature is complete
-- Status: "评审中" → "已实现"
+- Status: "In Review" → "Implemented"
 
 ### Deprecation
 - PRDs are NEVER deleted
 - When a feature is deprecated:
-  1. Update PRD status to "已废弃"
+  1. Update PRD status to "Deprecated"
   2. Add deprecation reason and date to changelog section
   3. Do NOT delete the file
 

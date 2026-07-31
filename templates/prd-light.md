@@ -1,12 +1,12 @@
-# Feature: {功能名称}
+# Feature: {Feature Name}
 
-## 用户故事
-作为{角色}，我希望{功能}，以便{价值}
+## User Story
+As a {role}, I want {feature}, so that {value}
 
-## 主流程
+## Main Flow
 ```mermaid
 ...
 ```
 
-## 验收标准
-- [ ] {可量化的验收标准}
+## Acceptance Criteria
+- [ ] {Quantifiable acceptance criteria}

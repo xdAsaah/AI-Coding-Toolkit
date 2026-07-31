@@ -1,49 +1,49 @@
-# Feature: {功能名称}
+# Feature: {Feature Name}
 
-## 状态
-- [ ] 草稿
-- [x] 评审中
-- [ ] 已实现
-- [ ] 已废弃
+## Status
+- [ ] Draft
+- [x] In Review
+- [ ] Implemented
+- [ ] Deprecated
 
-## 变更记录
-| 日期 | 作者 | 变更内容 |
+## Change Log
+| Date | Author | Change Description |
 |------|------|----------|
 
-## 需求概述
-### 用户故事
-作为{角色}，我希望{功能}，以便{价值}
+## Requirement Overview
+### User Story
+As a {role}, I want {feature}, so that {value}
 
-### 验收标准
-- [ ] {可量化的验收标准}
+### Acceptance Criteria
+- [ ] {Quantifiable acceptance criteria}
 
-## 交互流程
-### 主流程
+## Interaction Flow
+### Main Flow
 ```mermaid
 ...
 ```
 
-### 异常流程
-| 场景 | 处理方案 |
+### Exception Flow
+| Scenario | Handling |
 
-## 对外接口契约
-### API列表
-| 方法 | 路径 | 描述 |
+## External API Contract
+### API List
+| Method | Path | Description |
 
-## 异常场景处理
-| 场景 | 触发条件 | 处理逻辑 | 用户提示 |
+## Exception Handling
+| Scenario | Trigger Condition | Handling Logic | User Prompt |
 
-## 验收标准
-### 功能验收
-### 性能验收
+## Acceptance Criteria
+### Functional Acceptance
+### Performance Acceptance
 
-## 技术风险
-| 风险点 | 影响 | 降级方案 |
+## Technical Risks
+| Risk | Impact | Fallback Plan |
 
-## 自查清单
-- [ ] 所有正常场景已描述
-- [ ] 所有异常场景已考虑
-- [ ] 数据流向已闭环
-- [ ] 接口契约已明确
-- [ ] 验收标准可量化
-- [ ] 技术风险已标注
+## Self-Check List
+- [ ] All normal scenarios described
+- [ ] All exception scenarios considered
+- [ ] Data flow is closed-loop
+- [ ] API contracts defined
+- [ ] Acceptance criteria are quantifiable
+- [ ] Technical risks annotated

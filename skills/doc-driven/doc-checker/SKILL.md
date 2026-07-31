@@ -11,14 +11,14 @@ Check if code VIOLATES document conventions. Phase 1 focuses on simple automatab
 
 ## Boundary (vs spec-sync)
 
-| 维度 | doc-checker (合并前) | spec-sync (提交后) |
-|------|----------------------|-------------------|
-| 问题 | 代码是否违反文档约定？ | 代码变更影响哪些文档？ |
-| 检查 | API路径/方法是否与契约一致 | 哪些PRD需要更新 |
-| 检查 | PRD验收标准是否有关联测试 | 哪些ADR需要补充 |
-| 检查 | ADR决策是否在代码中落实 | 哪些spec需要同步 |
-| 阻断 | 是（破坏性变更） | 否 |
-| 修改文档 | 否 | 否（只建议） |
+| Dimension | doc-checker (before merge) | spec-sync (after commit) |
+|-----------|----------------------------|--------------------------|
+| Question | Does code violate document conventions? | Which documents are affected by code changes? |
+| Check | Do API paths/methods match contract | Which PRDs need updating |
+| Check | Do PRD acceptance criteria have linked tests | Which ADRs need supplementing |
+| Check | Are ADR decisions reflected in code | Which specs need syncing |
+| Block | Yes (breaking changes) | No |
+| Modify Docs | No | No (suggest only) |
 
 **doc-checker does NOT:**
 - Analyze which documents are affected by changes (that's spec-sync's job)
@@ -105,19 +105,19 @@ Generate report to `docs/superpowers/reports/{feature}-consistency.md`:
 Update `docs/superpowers/status/{feature}-status.md`:
 
 ```markdown
-## 当前阶段
+## Current Stage
 doc-checker
 
-## 文件位置
-| 一致性报告 | docs/superpowers/reports/{feature}-consistency.md | ✅ 已生成 |
+## File Locations
+| Consistency report | docs/superpowers/reports/{feature}-consistency.md | ✅ Generated |
 
-## 待处理
-- 下一步: [merge] → spec-sync (after commit)
-- 阻断问题: {N} 项 (需修复后才能合并)
-- 或: 无阻断问题,可合并
+## Pending
+- Next step: [merge] → spec-sync (after commit)
+- Blocking issues: {N} items (must fix before merge)
+- Or: No blocking issues, can merge
 
-## 历史记录
-| 追加一行 | doc-checker | 完成 ({N}阻断/{M}兼容) |
+## History
+| Append a row | doc-checker | Done ({N} blocking/{M} compatible) |
 ```
 
 ## Quality Gate

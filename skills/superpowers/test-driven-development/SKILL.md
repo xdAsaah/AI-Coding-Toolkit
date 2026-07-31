@@ -123,22 +123,22 @@ Can't check all boxes? You skipped TDD. Start over.
 Append to the end of `docs/superpowers/specs/{feature}-spec.md`:
 
 ```markdown
-## 测试覆盖报告
+## Test Coverage Report
 
-> 更新时间: {YYYY-MM-DD HH:MM}
+> Updated: {YYYY-MM-DD HH:MM}
 
-### 已覆盖验收标准
-| 验收标准 | 测试文件 | 测试用例 | 状态 |
+### Covered Acceptance Criteria
+| Acceptance Criteria | Test File | Test Case | Status |
 |---------|---------|---------|------|
-| {criteria} | {test file} | {test name} | ✅ 通过 |
+| {criteria} | {test file} | {test name} | ✅ Passed |
 
-### 未覆盖项
-- (列出未覆盖的边界场景,说明原因)
+### Uncovered Items
+- (List uncovered edge cases, explain reasons)
 
-### 测试统计
-- 测试用例总数: {N}
-- 通过: {N}
-- 失败: 0
+### Test Statistics
+- Total test cases: {N}
+- Passed: {N}
+- Failed: 0
 ```
 
 ### Update Status File
@@ -146,14 +146,14 @@ Append to the end of `docs/superpowers/specs/{feature}-spec.md`:
 Update `docs/superpowers/status/{feature}-status.md`:
 
 ```markdown
-## 当前阶段
+## Current Stage
 test-driven-development
 
-## 待处理
-- 下一步: doc-checker (before merge)
+## Pending
+- Next step: doc-checker (before merge)
 
-## 历史记录
-| 追加一行 | test-driven-development | 完成 |
+## History
+| Append a row | test-driven-development | Done |
 ```
 
 ## When Stuck
