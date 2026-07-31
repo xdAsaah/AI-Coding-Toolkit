@@ -1,4 +1,5 @@
-# AI Coding Toolkit 一键安装脚本 (Windows)
+# AI Coding Toolkit one-click install script (Windows)
+# Supports: Claude Code / Trae / Codex CLI / Gemini CLI / Cursor
 
 $ErrorActionPreference = "Stop"
 
@@ -10,60 +11,78 @@ Write-Host ""
 $SCRIPT_DIR = Split-Path -Parent $MyInvocation.MyCommand.Path
 $PROJECT_ROOT = Split-Path -Parent $SCRIPT_DIR
 
-# 检测目标目录
-if (Test-Path ".trae\skills") {
-    $TARGET = ".trae\skills"
-    $IDE = "Trae"
-} elseif (Test-Path ".claude\skills") {
-    $TARGET = ".claude\skills"
-    $IDE = "Claude Code"
-} else {
-    Write-Host "未检测到已安装的IDE，请选择：" -ForegroundColor Yellow
-    Write-Host "1) Trae"
-    Write-Host "2) Claude Code"
-    $choice = Read-Host "请输入选项 (1/2)"
-
-    switch ($choice) {
-        "1" { $TARGET = ".trae\skills"; $IDE = "Trae" }
-        "2" { $TARGET = ".claude\skills"; $IDE = "Claude Code" }
-        default { Write-Host "无效选项" -ForegroundColor Red; exit 1 }
-    }
+# Detection rules: marker file/dir -> skills dir -> tool name
+function Detect-Tool {
+    if (Test-Path ".claude\skills") { return @(".claude\skills", "CLAUDE.md", "Claude Code") }
+    if (Test-Path ".trae\skills")   { return @(".trae\skills",   "CLAUDE.md", "Trae") }
+    if (Test-Path ".agents\skills") { return @(".agents\skills", "AGENTS.md", "Codex CLI") }
+    if (Test-Path "AGENTS.md")      { return @(".agents\skills", "AGENTS.md", "Codex CLI") }
+    if (Test-Path ".gemini\skills") { return @(".gemini\skills", "GEMINI.md", "Gemini CLI") }
+    if (Test-Path "GEMINI.md")      { return @(".gemini\skills", "GEMINI.md", "Gemini CLI") }
+    if (Test-Path ".cursor\skills") { return @(".cursor\skills", ".cursorrules", "Cursor") }
+    if (Test-Path ".cursorrules")   { return @(".cursor\skills", ".cursorrules", "Cursor") }
+    return $null
 }
 
-Write-Host "检测到: $IDE"
-Write-Host "安装目录: $TARGET"
+$detected = Detect-Tool
+
+if (-not $detected) {
+    Write-Host "No supported IDE detected. Please choose:" -ForegroundColor Yellow
+    Write-Host "1) Claude Code   (.claude\skills\,  CLAUDE.md)"
+    Write-Host "2) Trae          (.trae\skills\,    CLAUDE.md)"
+    Write-Host "3) Codex CLI     (.agents\skills\,  AGENTS.md)"
+    Write-Host "4) Gemini CLI    (.gemini\skills\,  GEMINI.md)"
+    Write-Host "5) Cursor        (.cursor\skills\,  .cursorrules)"
+    $choice = Read-Host "Enter option (1-5)"
+
+    switch ($choice) {
+        "1" { $TARGET = ".claude\skills"; $IDE = "Claude Code" }
+        "2" { $TARGET = ".trae\skills";   $IDE = "Trae" }
+        "3" { $TARGET = ".agents\skills"; $IDE = "Codex CLI" }
+        "4" { $TARGET = ".gemini\skills"; $IDE = "Gemini CLI" }
+        "5" { $TARGET = ".cursor\skills"; $IDE = "Cursor" }
+        default { Write-Host "Invalid option" -ForegroundColor Red; exit 1 }
+    }
+} else {
+    $TARGET = $detected[0]
+    $IDE = $detected[2]
+}
+
+Write-Host "Detected: $IDE"
+Write-Host "Skills dir: $TARGET"
 Write-Host ""
 
-# 创建目录
+# Create directories
 New-Item -ItemType Directory -Force -Path $TARGET | Out-Null
 New-Item -ItemType Directory -Force -Path "docs\templates" | Out-Null
 
-# 安装Superpowers技能
-Write-Host "[1/3] 安装工程纪律技能 (Superpowers)..." -ForegroundColor Green
+# Install Superpowers skills
+Write-Host "[1/3] Installing engineering discipline skills (Superpowers)..." -ForegroundColor Green
 Copy-Item -Path "$PROJECT_ROOT\skills\superpowers\*" -Destination $TARGET -Recurse -Force
-Write-Host "  14个技能已安装"
+Write-Host "  14 skills installed"
 
-# 安装文档驱动技能
-Write-Host "[2/3] 安装文档驱动技能 (Doc-Driven)..." -ForegroundColor Green
+# Install doc-driven skills
+Write-Host "[2/3] Installing document-driven skills (Doc-Driven)..." -ForegroundColor Green
 Copy-Item -Path "$PROJECT_ROOT\skills\doc-driven\*" -Destination $TARGET -Recurse -Force
-Write-Host "  7个技能已安装"
+Write-Host "  7 skills installed"
 
-# 安装文档模板
-Write-Host "[3/3] 安装文档模板..." -ForegroundColor Green
+# Install document templates
+Write-Host "[3/3] Installing document templates..." -ForegroundColor Green
 Copy-Item -Path "$PROJECT_ROOT\templates\*" -Destination "docs\templates" -Recurse -Force
-Write-Host "  4个模板已安装"
+Write-Host "  4 templates installed"
 
 Write-Host ""
 Write-Host "=========================================" -ForegroundColor Cyan
-Write-Host "  安装完成！" -ForegroundColor Cyan
+Write-Host "  Installation complete!" -ForegroundColor Cyan
 Write-Host "=========================================" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "已安装 $IDE 的 21 个技能："
-Write-Host "  - 14 个工程纪律技能 (Superpowers)"
-Write-Host "  - 7 个文档驱动技能 (Doc-Driven)"
-Write-Host "  - 4 个文档模板"
+Write-Host "Installed 21 skills for $IDE:"
+Write-Host "  - 14 engineering discipline skills (Superpowers)"
+Write-Host "  - 7 document-driven skills (Doc-Driven)"
+Write-Host "  - 4 document templates"
 Write-Host ""
-Write-Host "下一步："
-Write-Host "1. 创建CLAUDE.md: 说'创建项目'触发claude-md-creator"
-Write-Host "2. 开始开发: 说'创建一个XXX应用'启动完整工作流"
+Write-Host "Next steps:"
+Write-Host "1. Create instruction file: say 'create project' to trigger claude-md-creator"
+Write-Host "   (Generates CLAUDE.md / AGENTS.md / GEMINI.md depending on tool)"
+Write-Host "2. Start development: say 'create a XXX app' to launch the full workflow"
 Write-Host ""
