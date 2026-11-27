@@ -171,6 +171,26 @@ ai-coding-toolkit/
 
 ---
 
+## 卸载
+
+安装脚本只往你的项目里复制文件，不注册全局命令，也不改系统设置。要移除这套工具，把复制过去的内容删掉即可：
+
+- **技能** — 从你所用工具的技能目录里删除 14 个 Superpowers 目录（`brainstorming`、`writing-plans`、`test-driven-development`、`subagent-driven-development`、`executing-plans`、`requesting-code-review`、`receiving-code-review`、`finishing-a-development-branch`、`systematic-debugging`、`verification-before-completion`、`using-git-worktrees`、`dispatching-parallel-agents`、`writing-skills`、`using-superpowers`）和 7 个 Doc-Driven 目录（`claude-md-creator`、`non-goals-clarify`、`prd-generator`、`adr-creator`、`doc-checker`、`spec-sync`、`spec-archive`）。
+- **模板** — 安装脚本放进 `docs/templates/` 的那 4 个文件。
+- **克隆目录** — 仓库本身。
+
+```bash
+# 以 Claude Code 为例；其他工具换成 .trae/skills、.agents/skills、.gemini/skills 或 .cursor/skills
+rm -rf .claude/skills/{brainstorming,writing-plans,test-driven-development,subagent-driven-development,executing-plans,requesting-code-review,receiving-code-review,finishing-a-development-branch,systematic-debugging,verification-before-completion,using-git-worktrees,dispatching-parallel-agents,writing-skills,using-superpowers,claude-md-creator,non-goals-clarify,prd-generator,adr-creator,doc-checker,spec-sync,spec-archive}
+rm -rf docs/templates
+```
+
+Windows 下用 PowerShell 的 `Remove-Item` 删除同样的目录。
+
+> 项目里的 `CLAUDE.md` / `AGENTS.md` / `GEMINI.md` 虽然由本工具包生成，但属于你自己的项目文件 —— 建议保留，里面记录的是你项目的决策。
+
+---
+
 ## 致谢
 
 本工具包包含来自 [Superpowers](https://github.com/obra/superpowers) 的技能，由 Jesse Vincent 创建，采用 MIT 许可证。
